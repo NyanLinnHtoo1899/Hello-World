@@ -4,18 +4,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { FormComponent } from './form/form.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { TestComponent } from './test/test.component';
+
+import { MaterialModule } from "./material/material.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    ProfileEditorComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

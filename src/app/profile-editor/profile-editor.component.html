@@ -1,0 +1,137 @@
+<!--
+<div>
+    <h2>
+        Required Field validation
+    </h2>
+    <form [formGroup]="formData" novalidate>
+        <div>
+            <label>Name:
+                <input formControlName="name">
+            </label>
+        </div>
+        <div *ngIf="formData.controls['name'].invalid && formData.controls['name'].touched" style="color: red;">
+            <div *ngIf="formData.controls['name'].errors?.['required']">
+                Name is required.
+            </div>
+        </div>
+
+        <div>
+            <label>age:
+                <input formControlName="age">
+            </label>
+        </div>
+        <div *ngIf="formData.controls['age'].invalid && formData.controls['age'].touched" style="color: red;">
+            <div *ngIf="formData.controls['age'].errors?.['required']">
+                age is required.
+            </div>
+        </div>
+
+        <div>
+            <label>age:
+                <input formControlName="age">
+            </label>
+        </div>
+        <div *ngIf="formData.controls['age'].invalid && formData.controls['age'].touched" style="color: red;">
+            <div *ngIf="formData.controls['age'].errors?.['required']">
+                age is required.
+            </div>
+        </div>
+
+
+        <h3>Gender</h3>
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+
+         <div class="form-group">
+            <label for="gender">Gender</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="male" value="male" formControlName="gender">
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="female" value="female" formControlName="gender">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+        </div> -->
+
+<!-- <section>
+            <h4>Select your hobbies:</h4>
+            <p><mat-checkbox formControlName="basketball">Basket Ball</mat-checkbox></p>
+            <p><mat-checkbox formControlName="swimming">Swimming</mat-checkbox></p>
+            <p><mat-checkbox formControlName="football">Football</mat-checkbox></p>
+        </section> 
+
+
+    </form>
+    <p>Form value: {{ formData.value | json }}</p>
+    <p>Form status: {{ formData.status | json }}</p>
+</div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="firstName">First Name: </label>
+    <input type="text" formControlName="firstName" id="firstName" required (input)="log()">
+    <div *ngIf="profileForm.invalid && (profileForm.dirty || profileForm.touched)" class="alert">
+
+        <div *ngIf="profileForm.errors?.['required']">
+            <small>Name is required.</small>
+        </div>
+    </div>
+
+    <label for="lastName">Last Name: </label>
+    <input type="text" formControlName="lastName" id="lastName">
+
+    <h3>Gender</h3>
+    <mat-radio-group aria-label="Select an option" formControlName="gender">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+    </mat-radio-group>
+
+    <section [formGroup]="hobbies">
+        <h4>Select your hobbies:</h4>
+        <p><mat-checkbox formControlName="basketball">Basket Ball</mat-checkbox></p>
+        <p><mat-checkbox formControlName="swimming">Swimming</mat-checkbox></p>
+        <p><mat-checkbox formControlName="football">Football</mat-checkbox></p>
+    </section>
+
+
+
+
+    <button type="button" (click)="submit()">Submit</button>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <!-- #docregion toggle -->
+        <input matInput formControlName="dob" [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <!-- #enddocregion toggle -->
+    </mat-form-field>
+
+
+    <p>Form value {{profileForm.value | json}}
+        {{hobbies.value | json}}
+    </p>
+</form>
