@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
 
 import { MaterialModule } from "./material/material.module";
+import { TableComponent } from './table/table.component';
+import { TestingPipe } from './testing.pipe';
+
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { MaterialModule } from "./material/material.module";
     AppComponent,
     ProfileEditorComponent,
     TestComponent,
+    TableComponent,
+    TestingPipe,
+
   ],
   imports: [
     BrowserModule,

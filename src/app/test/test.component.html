@@ -1,31 +1,19 @@
-<!-- <div>
-    <form [formGroup]="formdata">
-        <input type="text" name="userName" formControlName="userName">
-        <br />
-        <br />
-        <input type="submit" value="Click here">
-    </form>
-</div>
-<p> Textbox result is: {{formdata.value|json}} </p> -->
+<table matSort (matSortChange)="sortData($event)">
+    <tr>
+        <th mat-sort-header="name">Dessert (100g)</th>
+        <th mat-sort-header="calories">Calories</th>
+        <th mat-sort-header="fat">Fat (g)</th>
+        <th mat-sort-header="carbs">Carbs (g)</th>
+        <th mat-sort-header="protein">Protein (g)</th>
+    </tr>
 
-<div>
-    <h2>
-        Required Field validation
-    </h2>
-    <form [formGroup]="requiredForm" novalidate>
-        <div class="form-group">
-            <label class="center-block">Name:
-                <input class="form-control" formControlName="name">
-            </label>
-        </div>
-        <div *ngIf="requiredForm.controls['name'].invalid && requiredForm.controls['name'].touched" style="color: red;">
-            <div *ngIf="requiredForm.controls['name'].errors?.['required']">
-                Name is required.
-            </div>
-        </div>
-
-
-    </form>
-    <p>Form value: {{ requiredForm.value | json }}</p>
-    <p>Form status: {{ requiredForm.status | json }}</p>
-</div>
+    <tr *ngFor="let dessert of sortedData">
+        <td>{{dessert.name}}</td>
+        <td>{{dessert.calories}}</td>
+        <td>{{dessert.fat}}</td>
+        <td>{{dessert.carbs}}</td>
+        <td>{{dessert.protein}}</td>
+    </tr>
+</table>
+<mat-paginator #paginator [pageSizeOptions]="[2,6,10]" showFirstLastButtons (changes)="handlePagination($event)">
+</mat-paginator>

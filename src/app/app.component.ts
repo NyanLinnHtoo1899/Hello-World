@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { products } from "./products";
-
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -11,7 +9,6 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AppComponent {
   title = 'GoMe';
-  products = products;
   // form;
 
   // constructor(private fb: FormBuilder) {
