@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,29 @@ import { MaterialModule } from "./material/material.module";
 import { TableComponent } from './table/table.component';
 import { TestingPipe } from './testing.pipe';
 
+import { Routes, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const routes: Routes = [
+  {
+    path: 'table',
+    children: [{
+      path: 'test',
+      component: TestComponent
+    },
+    {
+      path: 'profile-editor',
+      component: ProfileEditorComponent,
+      pathMatch: 'full'
+    },
+    { path: '', component: TableComponent }
+    ]
+  }
+  // { path: 'test', component: TestComponent },
+  // { path: 'profile-editor', component: ProfileEditorComponent },
+  // { path: '', redirectTo: '/table', pathMatch: 'full' },
+  // { path: '**', component: PageNotFoundComponent }
+];
 
 
 @NgModule({
@@ -24,6 +47,7 @@ import { TestingPipe } from './testing.pipe';
     TestComponent,
     TableComponent,
     TestingPipe,
+    PageNotFoundComponent,
 
   ],
   imports: [
@@ -31,7 +55,8 @@ import { TestingPipe } from './testing.pipe';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    [RouterModule.forRoot(routes)]
   ],
   providers: [],
   bootstrap: [AppComponent]

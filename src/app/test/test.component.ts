@@ -1,4 +1,4 @@
-import { ViewChild, Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 
 import { MatPaginator } from '@angular/material/paginator';
@@ -55,7 +55,6 @@ export class TestComponent {
   handlePagination(event: any) {
     console.log(event);
   }
-
 
 }
 

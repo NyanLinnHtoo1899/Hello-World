@@ -15,5 +15,5 @@
         <td>{{dessert.protein}}</td>
     </tr>
 </table>
-<mat-paginator #paginator [pageSizeOptions]="[2,6,10]" showFirstLastButtons (changes)="handlePagination($event)">
+<mat-paginator [pageSizeOptions]="[2,6,10]" showFirstLastButtons (page)="handlePagination($event)">
 </mat-paginator>

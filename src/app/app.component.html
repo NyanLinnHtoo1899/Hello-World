@@ -9,10 +9,22 @@
 </head>
 
 <body>
+    <h2>Table Component</h2>
 
-    <app-table></app-table>
+    <nav>
+        <ul>
+            <li><a routerLink="table/test">test from child a</a></li>
+            <li><a routerLink="table/profile-editor">profile-editor from child b</a></li>
+        </ul>
+    </nav>
 
-    <!-- <app-test></app-test> -->
+    <!-- <nav>
+        <a class="button" routerLink="/test" routerLinkActive="activebutton">Test</a> |
+        <a class="button" routerLink="/table" routerLinkActive="activebutton">Table</a> |
+        <a class="button" routerLink="/profile-editor" routerLinkActive="activebutton">Profile Edit</a>
+    </nav> -->
+    <router-outlet></router-outlet>
+
 </body>
 
 </html>
